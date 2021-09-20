@@ -51,7 +51,6 @@ soundCloudAPI.getTrack = function (inputValue) {
     soundCloudAPI.renderTrack(tracks);
   });
 };
-soundCloudAPI.getTrack("surah mulk");
 
 // 3.Display the cards
 soundCloudAPI.renderTrack = function (tracks) {
