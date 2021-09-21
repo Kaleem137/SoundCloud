@@ -8,8 +8,6 @@ UI.handleEnterPress = function () {
     .addEventListener("keypress", function (e) {
       if (e.which === 13) {
         var inputValue = e.target.value;
-        // onValueRead( inputValue );
-        //console.log(inputValue);
         soundCloudAPI.getTrack(inputValue);
       }
     });
@@ -18,13 +16,10 @@ UI.handleEnterPress = function () {
 UI.handleSubmitClick = function () {
   document.querySelector(".js-submit").addEventListener("click", function (e) {
     var inputValue = document.querySelector(".js-search").value;
-    //onValueRead( inputValue );
-    //console.log(inputValue);
     soundCloudAPI.getTrack(inputValue);
   });
 };
 
-// // set up the search
 UI.handleEnterPress();
 UI.handleSubmitClick();
 
@@ -34,7 +29,6 @@ var soundCloudAPI = {};
 soundCloudAPI.init = function () {
   SC.initialize({
     client_id: "cd9be64eeb32d1741c17cb39e41d254d",
-    // redirect_uri: "https://kaleemullah.engineer",
   });
 };
 soundCloudAPI.init();
@@ -69,9 +63,9 @@ soundCloudAPI.renderTrack = function (tracks) {
     var imageDiv = document.querySelector("div.card:last-child");
     imageDiv.appendChild(image);
     // IMAGE__DIV
-    var image_img = document.createElement("div");
+    var image_img = document.createElement("img");
     image_img.classList.add("image_img");
-    image_img.src = track.artwork_url; // PROBLEM
+    image_img.src = track.artwork_url || "https://picsum.photos/200";
 
     var image_imgDiv = document.querySelector("div.card:last-child .image");
     image_imgDiv.appendChild(image_img);
@@ -114,7 +108,7 @@ soundCloudAPI.renderTrack = function (tracks) {
     uiDiv_selector.appendChild(uiDiv_span);
 
     uiDiv_selector.addEventListener("click", function () {
-      soundCloudAPI.getEmbed(track.permalink_url);
+      soundCloudAPI.getEmbed(track.uri);
     });
   });
 };
@@ -138,3 +132,12 @@ soundCloudAPI.getEmbed = function (trackURL) {
 
 var sideBar = document.querySelector(".js-playlist");
 sideBar.innerHTML = localStorage.getItem("key");
+
+var resetSideBar = document
+  .querySelector(".reset_btn")
+  .addEventListener("click", function () {
+    var resetSideBar = document.getElementsByClassName(".reset_btn");
+    resetSideBar.innerHTML = localStorage.removeItem("key");
+    location.reload();
+    return false;
+  });
