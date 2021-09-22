@@ -19,6 +19,7 @@ body {
   height: 100%;
   background-color: #292929;
   overflow: auto;
+  padding: 60px;
 
   position: fixed;
   left: 0;
@@ -72,7 +73,7 @@ body {
   font-size: 22px;
   display: block;
   color: #fff;
-  margin: 60px 20px 30px;
+  margin-bottom: 30px;
   padding: 16px;
   text-align: center;
   border-radius: 4px;
@@ -116,4 +117,15 @@ button:focus {
 
 iframe {
   border-radius: 4.5px;
+}
+
+#soundcloud-player .primary_heading_left {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#soundcloud-player .primary_heading_right {
+  text-align: center;
+  margin-bottom: 20px;
 }
