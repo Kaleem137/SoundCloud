@@ -28,8 +28,8 @@ var soundCloudAPI = {};
 
 soundCloudAPI.init = function () {
   SC.initialize({
-//     client_id: "cd9be64eeb32d1741c17cb39e41d254d",
-    client_id: "p3D2oFaUcjV5IX3BpQXe9WWV3jrSr83H",
+    client_id: "cd9be64eeb32d1741c17cb39e41d254d",
+//     client_id: "p3D2oFaUcjV5IX3BpQXe9WWV3jrSr83H",
   });
 };
 soundCloudAPI.init();
